@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- 原生版 -->
+        <script src="art.js"></script>
+        <!-- 简洁版 -->
+        <!-- <script src="artTemplate.js"></script> -->
+    </head>
+    <body> 
+        <div id="content"></div>
+    </body>
+    <script id="test" type="text/html">
+       <!-- 简洁模板 -->
+        <h1>{{title}}</h1>
+        <ul>
+            {{each list as value i}}
+                <li>索引{{i+1}} : {{value}}</li>
+            {{/each}}
+        </ul>
+
+        <!-- 原生模板 -->
+        <h1><%=title%></h1>
+        <ul>
+            <%for(i=0;i<list.length;i++){%>
+                <li>索引<%=i+1%>：<%=list[i]%></li>
+            <%}%>
+        </ul>
+    </script>
+    <script>
+    var data={
+        title:'标签',
+        list:['文艺','博客','摄影','民谣']
+    };
+    var mm=template('test',data);
+    document.getElementById('content').innerHTML=mm
+    </script>
+
+</html>
