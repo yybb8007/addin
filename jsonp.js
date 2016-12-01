@@ -6,7 +6,7 @@ function jsonp(url,parameter,callback){
 	var randomKey="cbf"+new Date().getTime();
 	//将callback以生成的随机串为属性名添加到window对象上，这样，在页面的任意位置都能以window[randomKey]()形式访问回调函数
 	window[randomKey]=callback;
-	url+="?callback"+randomKey;
+	url+="?callback="+randomKey;
 	
 	//拼接参数
 	if (parameter) {
